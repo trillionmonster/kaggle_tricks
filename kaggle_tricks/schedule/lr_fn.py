@@ -1,8 +1,6 @@
 import tensorflow as tf
 import math
-from tensorflow.keras.callbacks import LearningRateScheduler
-LearningRateSchedule
-tf.keras.experimental.CosineDecayRestarts
+
 def build_warmup_lr_function(
         lr_start=1e-8,
         lr_min=1e-8,
