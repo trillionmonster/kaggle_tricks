@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+###copy from https://github.com/Diulhio/bitemperedloss-tf/blob/main/tf_bi_tempered_loss.py
 import tensorflow as tf
 
 
