@@ -10,7 +10,6 @@ def log_t(u, t):
     else:
         return (u ** (1.0 - t) - 1.0) / (1.0 - t)
 
-
 def exp_t(u, t):
     """Compute exp_t for `u`."""
     if t == 1.0:
@@ -100,6 +99,22 @@ def bi_tempered_logistic_loss(y_pred, y_true, t1, t2, num_iters=5, label_smoothi
 
 class BiTemperedLogisticLoss(tf.keras.losses.Loss):
     def __init__(self, t1, t2, n_iter=5, label_smoothing=0.0):
+        """
+
+        :param t1:
+        :param t2:
+        :param n_iter:
+        :param label_smoothing:
+
+        example:
+        >>>import tensorflow as tf
+        >>>from kaggle_tricks.loss.tf_bi_tempered_loss import BiTemperedLogisticLoss
+
+        >>>pretrained_model = tf.keras.applications.VGG16()
+        >>>pretrained_model.compile(optimizer='adam', loss=BiTemperedLogisticLoss(t1=1.0, t2=1.0), metrics=['accuracy'])
+        >>>pretrained_model.fit(your_params)
+
+        """
         super(BiTemperedLogisticLoss, self).__init__()
         self.t1 = t1
         self.t2 = t2
